@@ -15,8 +15,8 @@ class Bear {
       this.htmlElement.style.top = this.y + "px";
       this.htmlElement.style.display = "absolute";
     };
-  }
-}
+  
+
 
 function start() {
   //create bear
@@ -65,6 +65,7 @@ this.move = function (xDir, yDir) {
   this.y += this.dBear * yDir;
   this.display();
 };
+}
 class Bee {
   constructor(beeNumber) {
     //the HTML element corresponding to the IMG of the bee
@@ -102,30 +103,31 @@ class Bee {
       if (this.y < 0) this.y = 0;
       if (this.y > h - ih) this.y = h - ih;
     };
-  }
-  function createBeeImg(wNum) {
-    //get dimension and position of board div
-    let boardDiv = document.getElementById("board");
-    let boardDivW = boardDiv.offsetWidth;
-    let boardDivH = boardDiv.offsetHeight;
-    let boardDivX = boardDiv.offsetLeft;
-    let boardDivY = boardDiv.offsetTop;
-    //create the IMG element
-    let img = document.createElement("img");
-    img.setAttribute("src", "images/bee.gif");
-    img.setAttribute("width", "100");
-    img.setAttribute("alt", "A bee!");
-    img.setAttribute("id", "bee" + wNum);
-    img.setAttribute("class", "bee"); //set class of html tag img
-    //add the IMG element to the DOM as a child of the board div
-    img.style.position = "absolute";
-    boardDiv.appendChild(img);
-    //set initial position
-    let x = getRandomInt(boardDivW);
-    let y = getRandomInt(boardDivH);
-    img.style.left = (boardDivX + x) + "px";
-    img.style.top = (y) + "px";
-    //return the img object
-    return img;
+
+    function createBeeImg(wNum) {
+      //get dimension and position of board div
+      let boardDiv = document.getElementById("board");
+      let boardDivW = boardDiv.offsetWidth;
+      let boardDivH = boardDiv.offsetHeight;
+      let boardDivX = boardDiv.offsetLeft;
+      let boardDivY = boardDiv.offsetTop;
+      //create the IMG element
+      let img = document.createElement("img");
+      img.setAttribute("src", "images/bee.gif");
+      img.setAttribute("width", "100");
+      img.setAttribute("alt", "A bee!");
+      img.setAttribute("id", "bee" + wNum);
+      img.setAttribute("class", "bee"); //set class of html tag img
+      //add the IMG element to the DOM as a child of the board div
+      img.style.position = "absolute";
+      boardDiv.appendChild(img);
+      //set initial position
+      let x = getRandomInt(boardDivW);
+      let y = getRandomInt(boardDivH);
+      img.style.left = boardDivX + x + "px";
+      img.style.top = y + "px";
+      //return the img object
+      return img;
     }
+  }
 }

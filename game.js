@@ -45,7 +45,7 @@ function start() {
 
   // Add an event listener to the keypress event.
   document.addEventListener("keydown", moveBear, false);
-  lastStingTime = new Date();
+  lastStingTime = new Date(); 
   //create new array for bees
   bees = new Array();
   //create bees
@@ -102,7 +102,7 @@ class Bee {
           this.display();
       };
 
-      this.display = function() {
+      this.display = function() { 
           //adjust position of bee and display it
           this.fitBounds(); //added this to adjust to bounds
           this.htmlElement.style.left = this.x + "px";

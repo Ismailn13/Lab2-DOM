@@ -209,9 +209,9 @@ function updateBees() { // update loop for game
   //use a fixed update period
   let period = document.getElementById("periodTimer").value; //this is a user-input timer for the bees' refresh period
   //update the timer for the next move
-  if (hits.innerHTML>=1000){  //If number of stings on bear is 1000 or higher
+  if (hits>=1000){  //If number of stings on bear is 1000 or higher
       alert("Game over!");    //The game ends and an alert screen pops up saying the "Game over!"
-      clearTimeout(); //The timer halts
+      clearTimeout(); //The timer halts 
   }
   else{
       updateTimer = setTimeout('updateBees()', period); //The bees positions are updated according to the number of stings

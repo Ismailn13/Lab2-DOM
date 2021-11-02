@@ -52,6 +52,8 @@ function start() {
   makeBees();
   //Updates bees (move bees in random location and in random intervals)
   updateBees();
+  //Updates the refresh period of the bees after user input change
+  document.addEventListener("keydown",updateBees,false);
 }
 
 // Handle keyboad events 
@@ -207,7 +209,7 @@ function updateBees() { // update loop for game
   //use a fixed update period
   let period = document.getElementById("periodTimer").value; //this is a user-input timer for the bees' refresh period
   //update the timer for the next move
-  if (hits.innerHTML>=1000){  //If number of stings on bear is >=1000
+  if (hits.innerHTML>=1000){  //If number of stings on bear is 1000 or higher
       alert("Game over!");    //The game ends and an alert screen pops up saying the "Game over!"
       clearTimeout(); //The timer halts
   }
@@ -220,7 +222,7 @@ function isHit(defender, offender) {
   if (overlap(defender, offender)) { //check if the two image overlap
   
       let score = hits.innerHTML;
-      score = Number(score) + 1; //increment the score
+      score   = Number(score) + 1; //increment the score
       hits.innerHTML = score; //display the new score
       let newStingTime = new Date();
       let thisDuration = newStingTime - lastStingTime;
